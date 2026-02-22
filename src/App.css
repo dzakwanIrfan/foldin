@@ -1,42 +1,138 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* ═══ Foldin App Styles ═══ */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+
+/* ── Reset ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Hide scrollbars */
+*::-webkit-scrollbar {
+  display: none;
 }
 
-@keyframes logo-spin {
+* {
+  scrollbar-width: none;
+}
+
+/* ── Placeholder style ── */
+input::placeholder,
+textarea::placeholder {
+  color: #bfb3a8;
+}
+
+/* ── Range slider thumb ── */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f08c38;
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* ── Animations ── */
+
+/* Fade-in up */
+@keyframes fi {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(8px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Pulse */
+@keyframes pu {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
 
-.card {
-  padding: 2em;
+/* Your-position ping */
+@keyframes yp {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Ghost float */
+@keyframes gf {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -56%);
+    opacity: 0.6;
+  }
+}
+
+/* Glow */
+@keyframes gl {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(240, 140, 56, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(240, 140, 56, 0.3);
+  }
+}
+
+/* Scanner line */
+@keyframes sc {
+  0% {
+    top: 10%;
+  }
+  100% {
+    top: 85%;
+  }
+}
+
+/* Stamp entrance */
+@keyframes stampIn {
+  from {
+    transform: scale(1.5) rotate(-15deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* ── Utility classes ── */
+.fi {
+  animation: fi 0.25s ease-out;
+}
+
+.stamp {
+  animation: stampIn 0.4s cubic-bezier(0.17, 0.67, 0.35, 1.2);
 }
